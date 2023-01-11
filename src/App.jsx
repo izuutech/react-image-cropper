@@ -39,8 +39,6 @@ function App() {
 
   const cropImg = async () => {
     const image = imgRef.current;
-    console.log(crop, "ll");
-    console.log(completedCrop, "v");
 
     //if the person has not touched to crop, use default cropping value
     const theCrop = completedCrop.width ? completedCrop : crop;
@@ -74,7 +72,9 @@ function App() {
   };
 
   return (
-    <div className="w-[100%]">
+    <div className="w-full text-white">
+      <h1 className="text-2xl mb-2">React Image Cropper App</h1>
+
       <Modal
         title={`Upload image`}
         visible={openModal}
@@ -94,11 +94,14 @@ function App() {
         >
           <img src={src} ref={imgRef} />
         </ReactCrop>
-        <button onClick={cropImg} className="bg-zinc-400 text-white">
+        <button
+          onClick={cropImg}
+          className="text-[#64ffda] bg-black py-2 px-4 rounded hover:bg-gray-600 transition duration-500"
+        >
           Crop
         </button>
       </Modal>
-      <span>Select Image to Crop</span>
+      <div className="mb-2">Select Image to Crop</div>
       <div>
         <input
           type="file"
@@ -108,10 +111,13 @@ function App() {
         />
       </div>
 
-      <div className="mt-10">
-        <span>Output</span>
-        <img src={result} alt="output" />
+      <div className="mt-10 w-full flex flex-col items-center justify-center ">
+        <div className="w-96 bg-[#64ffda] text-black mb-4">Output</div>
+
+        {/* <div className="w-[90%] flex items-center justify-center ml-[5%] bg-red-700"> */}
+        <img src={result} alt="output" className="w-96 aspect-auto" />
       </div>
+      {/* </div> */}
     </div>
   );
 }
