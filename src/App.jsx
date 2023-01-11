@@ -73,7 +73,7 @@ function App() {
 
   return (
     <div className="w-full text-white">
-      <h1 className="text-2xl mb-2">React Image Cropper App</h1>
+      <h1 className="text-2xl mb-2">Image Cropper App</h1>
 
       <Modal
         title={`Upload image`}
