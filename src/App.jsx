@@ -21,6 +21,8 @@ function App() {
     console.log(crop);
     return () => {};
   }, [crop]);
+
+  const cropImg = () => {};
   return (
     <div className="w-[100%]">
       <Modal
@@ -28,14 +30,16 @@ function App() {
         visible={true}
         className="font-body"
         // closable={false}
-        // onOk={saveImg}
-        // onCancel={toggleModal}
+
         width={400}
         footer={null}
       >
         <ReactCrop crop={crop} onChange={(c) => setCrop(c)}>
           <img src={src} />
         </ReactCrop>
+        <button onClick={cropImg} className="bg-zinc-400 text-white">
+          Crop
+        </button>
       </Modal>
       <span>saaaaap</span>
       <div>
