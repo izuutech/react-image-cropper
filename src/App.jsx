@@ -9,6 +9,7 @@ import { Modal } from "antd";
 function App() {
   const [src, setSrc] = useState("");
   const [openModal, setOpenModal] = useState(false);
+  const [fileName, setFileName] = useState("");
   const imgRef = useRef(null);
 
   const [result, setResult] = useState(null);
@@ -72,7 +73,7 @@ function App() {
   };
 
   return (
-    <div className="w-full text-white">
+    <div className="w-full text-white flex flex-col items-center">
       <h1 className="text-2xl mb-2">Image Cropper App</h1>
 
       <Modal
@@ -101,11 +102,22 @@ function App() {
           Crop
         </button>
       </Modal>
-      <div className="mb-2">Select Image to Crop</div>
+      <div className="mb-2">
+        TO USE: Enter the new name of the file you want to crop then select the
+        file. After cropping, you can download.
+      </div>
+      <div className="mb-4">
+        <input
+          type="text"
+          className="border p-2 text-black h-12 w-full outline-none border rounded-[5px] px-2"
+          placeholder="Name of file"
+          onChange={(e) => setFileName(e.target.value)}
+        />
+      </div>
       <div>
         <input
           type="file"
-          className="border p-2"
+          className="border p-2k"
           placeholder="Add image"
           onChange={selectImage}
         />
@@ -114,10 +126,20 @@ function App() {
       <div className="mt-10 w-full flex flex-col items-center justify-center ">
         <div className="w-96 bg-[#64ffda] text-black mb-4">Output</div>
 
-        {/* <div className="w-[90%] flex items-center justify-center ml-[5%] bg-red-700"> */}
-        <img src={result} alt="output" className="w-96 aspect-auto" />
+        {result ? (
+          <img src={result} alt="output" className="w-96 aspect-auto" />
+        ) : (
+          <div className="w-96 border h-96"></div>
+        )}
       </div>
-      {/* </div> */}
+
+      <a
+        href={result}
+        className="w-96 flex items-center justify-center px-4 py-2 cursor-pointer bg-[#64ffda] text-black mt-8 rounded transition duration-500 hover:bg-[#64ffda70]"
+        download={fileName ? fileName : "crop_joshuaizu"}
+      >
+        Download crop
+      </a>
     </div>
   );
 }
