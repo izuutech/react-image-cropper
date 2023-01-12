@@ -124,18 +124,18 @@ function App() {
       </div>
 
       <div className="mt-10 w-full flex flex-col items-center justify-center ">
-        <div className="w-96 bg-[#64ffda] text-black mb-4">Output</div>
+        <div className="w-80 bg-[#64ffda] text-black mb-4">Output</div>
 
         {result ? (
-          <img src={result} alt="output" className="w-96 aspect-auto" />
+          <img src={result} alt="output" className="w-80 aspect-auto" />
         ) : (
-          <div className="w-96 border h-96"></div>
+          <div className="w-80 border h-80"></div>
         )}
       </div>
 
       <a
         href={result}
-        className="w-96 flex items-center justify-center px-4 py-2 cursor-pointer bg-[#64ffda] text-black mt-8 rounded transition duration-500 hover:bg-[#64ffda70]"
+        className="w-80 flex items-center justify-center px-4 py-2 cursor-pointer bg-[#64ffda] text-black mt-8 rounded transition duration-500 hover:bg-[#64ffda70]"
         download={fileName ? fileName : "crop_joshuaizu"}
       >
         Download Cropped Image
