@@ -138,7 +138,7 @@ function App() {
         className="w-96 flex items-center justify-center px-4 py-2 cursor-pointer bg-[#64ffda] text-black mt-8 rounded transition duration-500 hover:bg-[#64ffda70]"
         download={fileName ? fileName : "crop_joshuaizu"}
       >
-        Download crop
+        Download Cropped Image
       </a>
     </div>
   );
